@@ -20,10 +20,7 @@ const HomeContents = (props: Props) => {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="space-y-6">
-        <h1
-          data-tina-field={tinaField(post, "title")}
-          className="text-5xl font-bold mb-12 text-center"
-        >
+        <h1 data-tina-field={tinaField(post, "title")} className="text-5xl font-bold mb-12 text-center">
           {post.title}
         </h1>
         <div data-tina-field={tinaField(post, "body")} className="markdown">
