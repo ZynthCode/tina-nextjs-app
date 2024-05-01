@@ -1,22 +1,23 @@
 "use client";
 
 import React from "react";
-import { PostQuery } from "../../tina/__generated__/types";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { TinaMarkdown, TinaMarkdownContent } from "tinacms/dist/rich-text";
 import { tinaField, useTina } from "tinacms/dist/react";
 
-type Props = {
-  data: PostQuery;
-  variables: {
-    relativePath: string;
+export type HomeContentProps = {
+  data: {
+    post: {
+      title: string;
+      body: TinaMarkdownContent;
+    };
   };
+  variables: any;
   query: string;
 };
 
-const HomeContents = (props: Props) => {
+const HomeContent = (props: HomeContentProps) => {
   const { data } = useTina(props);
-  const post = data.post;
-
+  const { post } = data;
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="space-y-6">
@@ -31,4 +32,4 @@ const HomeContents = (props: Props) => {
   );
 };
 
-export default HomeContents;
+export default HomeContent;
