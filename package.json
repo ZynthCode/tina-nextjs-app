@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
+    "dev": "tinacms dev -c \"next dev\"",
     "build": "tinacms build && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-sso-oidc": "^3.565.0",
+    "mongodb": "^4.12.1",
+    "@tinacms/datalayer": "^1.2.33",
+    "mongodb-level": "^0.0.4",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "tinacms": "^1.6.2"
+    "tinacms": "^1.6.2",
+    "tinacms-authjs": "^2.0.2",
+    "tinacms-gitprovider-github": "^1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
