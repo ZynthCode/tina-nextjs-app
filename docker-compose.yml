@@ -7,10 +7,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
+      args: # On ubuntu default docker gateway is 172.17.0.1. On Windows you need to use host.docker.internal so the app has access to it during build
         MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@172.17.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.5
-        NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-        GITHUB_BRANCH: ${GITHUB_BRANCH}
     ports:
       - "3000:3000"
     networks:

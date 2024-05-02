@@ -29,11 +29,13 @@ const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const isRootHomePage = body.variables && body.variables?.relativePath === "_home.md";
 
     if (updateDocument && isPostCollection && isRootHomePage) {
-      console.log("reinvalidating now!!");
+      console.log("Revalidating /");
 
-      // Fire & Forget, this will happen a few seconds after Tina saves it :)
       fetch(`${process.env.NEXTAUTH_URL}/api/revalidate?path=/`, {
         method: "GET",
+        headers: {
+          Authorization: `Bearer ${process.env.REVALIDATION_TOKEN}`,
+        },
       })
         .then((response) => response.json())
         .then((data) => console.log("Revalidation response:", data))

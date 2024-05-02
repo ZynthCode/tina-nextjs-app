@@ -1,17 +1,23 @@
-import { wait } from "@/modules/utils/backend-utils";
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
+  const token = request.headers.get("Authorization")?.split(" ")[1];
+  const expectedToken = process.env.REVALIDATION_TOKEN;
+
+  if (token !== expectedToken) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   const searchParams = request.nextUrl.searchParams;
   const path = searchParams.get("path");
 
-  // TODO: Turn this into a server action so we dont expose this API endpoint?
-  // TODO: Alternatively, add a token/secret that needs to be passed for this to work.
-
   if (path) {
-    // await wait(5000);
-
     revalidatePath(path);
     return new Response(JSON.stringify({ revalidate: path }), {
       headers: {

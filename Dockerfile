@@ -17,11 +17,8 @@ RUN \
 # Build the Next.js application
 FROM base AS builder
 
-# tina specific args
+# For building this is different since it is not normal to have API/DB access during builds
 ARG MONGODB_URI
-ARG NEXTAUTH_SECRET
-ARG GITHUB_BRANCH
-
 
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
