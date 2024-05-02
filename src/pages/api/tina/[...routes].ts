@@ -1,5 +1,6 @@
 import { TinaNodeBackend, LocalBackendAuthProvider } from "@tinacms/datalayer";
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from "tinacms-authjs";
+import { NextApiRequest, NextApiResponse } from "next";
 
 import databaseClient from "../../../../tina/__generated__/databaseClient";
 
@@ -17,7 +18,25 @@ const handler = TinaNodeBackend({
   databaseClient,
 });
 
-const requestHandler = (req: any, res: any) => {
+const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === "POST") {
+    const body = req.body;
+    const updateDocument = body.query && body.query.includes("UpdateDocument");
+    const isPostCollection = body.variables && body.variables?.collection === "post";
+    const isRootHomePage = body.variables && body.variables?.relativePath === "_home.md";
+
+    if (updateDocument && isPostCollection && isRootHomePage) {
+      console.log("reinvalidating now!!");
+
+      // Fire & Forget, this will happen a few seconds after we do our thing :)
+      fetch(`http://localhost:3000/api/revalidate?path=/`, {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Revalidation response:", data))
+        .catch((error) => console.error("Revalidation error:", error));
+    }
+  }
   return handler(req, res);
 };
 

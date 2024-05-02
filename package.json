@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@aws-sdk/client-sso-oidc": "^3.565.0",
-    "mongodb": "^4.12.1",
     "@tinacms/datalayer": "^1.2.33",
+    "mongodb": "^4.12.1",
     "mongodb-level": "^0.0.4",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
+    "server-only": "^0.0.1",
     "tinacms": "^1.6.2",
     "tinacms-authjs": "^2.0.2",
     "tinacms-gitprovider-github": "^1.0.4"

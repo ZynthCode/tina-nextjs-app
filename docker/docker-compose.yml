@@ -4,11 +4,22 @@ services:
     image: mongo:5
     ports:
       - "27017:27017"
-    container_name: tina-nextjs-app-mongodb
+    container_name: mongodb
     restart: always
     logging:
       options:
         max-size: 1g
+    networks:
+      - tinacms-network
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongodb-storage:/data/db
+
+volumes:
+  mongodb-storage:
+
+networks:
+  tinacms-network:
+    external: true

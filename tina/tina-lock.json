@@ -112,7 +112,11 @@
       "createUser": "create",
       "updateUser": "update"
     },
-    "UserConnection": { "type": "UserConnection", "resolveType": "collectionDocumentList", "collection": "user" },
+    "UserConnection": {
+      "type": "UserConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "user"
+    },
     "Post": {
       "type": "Post",
       "resolveType": "collectionDocument",
@@ -120,7 +124,11 @@
       "createPost": "create",
       "updatePost": "update"
     },
-    "PostConnection": { "type": "PostConnection", "resolveType": "collectionDocumentList", "collection": "post" }
+    "PostConnection": {
+      "type": "PostConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "post"
+    }
   },
   "graphql": {
     "kind": "Document",
@@ -128,7 +136,10 @@
       {
         "kind": "ScalarTypeDefinition",
         "name": { "kind": "Name", "value": "Reference" },
-        "description": { "kind": "StringValue", "value": "References another document, used as a foreign key" },
+        "description": {
+          "kind": "StringValue",
+          "value": "References another document, used as a foreign key"
+        },
         "directives": []
       },
       {
@@ -358,7 +369,10 @@
       },
       {
         "kind": "InterfaceTypeDefinition",
-        "description": { "kind": "StringValue", "value": "A relay-compliant pagination connection" },
+        "description": {
+          "kind": "StringValue",
+          "value": "A relay-compliant pagination connection"
+        },
         "name": { "kind": "Name", "value": "Connection" },
         "interfaces": [],
         "directives": [],
@@ -679,7 +693,10 @@
             "arguments": [],
             "type": {
               "kind": "ListType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DocumentConnectionEdges" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentConnectionEdges" }
+              }
             }
           }
         ]
@@ -739,13 +756,19 @@
             "kind": "FieldDefinition",
             "name": { "kind": "Name", "value": "templates" },
             "arguments": [],
-            "type": { "kind": "ListType", "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } } }
+            "type": {
+              "kind": "ListType",
+              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+            }
           },
           {
             "kind": "FieldDefinition",
             "name": { "kind": "Name", "value": "fields" },
             "arguments": [],
-            "type": { "kind": "ListType", "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } } }
+            "type": {
+              "kind": "ListType",
+              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "JSON" } }
+            }
           },
           {
             "kind": "FieldDefinition",
@@ -779,7 +802,10 @@
               {
                 "kind": "InputValueDefinition",
                 "name": { "kind": "Name", "value": "filter" },
-                "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DocumentFilter" } }
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "DocumentFilter" }
+                }
               },
               {
                 "kind": "InputValueDefinition",
@@ -789,7 +815,10 @@
             ],
             "type": {
               "kind": "NonNullType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DocumentConnection" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentConnection" }
+              }
             }
           }
         ]
@@ -860,7 +889,10 @@
             "arguments": [],
             "type": {
               "kind": "NonNullType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserUsersPassword" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "UserUsersPassword" }
+              }
             }
           }
         ]
@@ -1026,7 +1058,10 @@
             "arguments": [],
             "type": {
               "kind": "ListType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserConnectionEdges" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "UserConnectionEdges" }
+              }
             }
           }
         ]
@@ -1174,7 +1209,10 @@
             "arguments": [],
             "type": {
               "kind": "ListType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "PostConnectionEdges" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PostConnectionEdges" }
+              }
             }
           }
         ]
@@ -1238,7 +1276,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DocumentUpdateMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "DocumentUpdateMutation" }
+                  }
                 }
               }
             ],
@@ -1292,7 +1333,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "DocumentMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "DocumentMutation" }
+                  }
                 }
               }
             ],
@@ -1336,7 +1380,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "UserMutation" }
+                  }
                 }
               }
             ],
@@ -1362,7 +1409,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "UserMutation" }
+                  }
                 }
               }
             ],
@@ -1388,7 +1438,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "PostMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "PostMutation" }
+                  }
                 }
               }
             ],
@@ -1414,7 +1467,10 @@
                 "name": { "kind": "Name", "value": "params" },
                 "type": {
                   "kind": "NonNullType",
-                  "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "PostMutation" } }
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "PostMutation" }
+                  }
                 }
               }
             ],
@@ -1503,7 +1559,10 @@
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "password" },
-            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserUsersPasswordMutation" } }
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "UserUsersPasswordMutation" }
+            }
           }
         ]
       },
@@ -1516,7 +1575,10 @@
             "name": { "kind": "Name", "value": "users" },
             "type": {
               "kind": "ListType",
-              "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "UserUsersMutation" } }
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "UserUsersMutation" }
+              }
             }
           }
         ]
