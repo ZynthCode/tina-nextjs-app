@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   // TODO: Alternatively, add a token/secret that needs to be passed for this to work.
 
   if (path) {
-    await wait(5000);
+    // await wait(5000);
 
     revalidatePath(path);
     return new Response(JSON.stringify({ revalidate: path }), {

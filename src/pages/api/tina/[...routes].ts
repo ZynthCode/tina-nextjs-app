@@ -19,6 +19,9 @@ const handler = TinaNodeBackend({
 });
 
 const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await handler(req, res);
+
+  console.log({ req: req.body });
   if (req.method === "POST") {
     const body = req.body;
     const updateDocument = body.query && body.query.includes("UpdateDocument");
@@ -28,7 +31,7 @@ const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (updateDocument && isPostCollection && isRootHomePage) {
       console.log("reinvalidating now!!");
 
-      // Fire & Forget, this will happen a few seconds after we do our thing :)
+      // Fire & Forget, this will happen a few seconds after Tina saves it :)
       fetch(`${process.env.NEXTAUTH_URL}/api/revalidate?path=/`, {
         method: "GET",
       })
@@ -37,7 +40,6 @@ const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         .catch((error) => console.error("Revalidation error:", error));
     }
   }
-  return handler(req, res);
 };
 
 export default requestHandler;
