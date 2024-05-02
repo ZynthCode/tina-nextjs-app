@@ -29,7 +29,7 @@ const requestHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.log("reinvalidating now!!");
 
       // Fire & Forget, this will happen a few seconds after we do our thing :)
-      fetch(`http://localhost:3000/api/revalidate?path=/`, {
+      fetch(`${process.env.NEXTAUTH_URL}/api/revalidate?path=/`, {
         method: "GET",
       })
         .then((response) => response.json())
